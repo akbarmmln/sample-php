@@ -5,4 +5,4 @@ FROM php:7.0-apache
 RUN apt-get update && \
     apt-get clean
 # The PHP application code goes in sample-php/
-COPY sample-php /var/www/html/
+COPY . /var/www/html/sample-php
