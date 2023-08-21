@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-php
+  namespace: sit
+  labels:
+    app: sample-php
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: sample-php
+  template:
+    metadata:
+      labels:
+        app: sample-php
+    spec:
+      containers:
+      - name: sample-php
+        image: taufik90/samplephp:1
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+          name: sample-php
